@@ -7,6 +7,9 @@
       "$digerati/*": [
         "src/digerati/*"
       ],
+      "$goodDogVeterinaryCare/*": [
+        "src/goodDogVeterinaryCare/*"
+      ]
     },
     "types": [
       "@finsweet/ts-utils"
