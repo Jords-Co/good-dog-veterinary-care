@@ -28,7 +28,7 @@ export const OpenStreetMapManager = () => {
      * 
      * @returns 
      */
-    const getStreetMapTileLayer = () => L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const getStreetMapTileLayer = () => L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
         attribution: 'Map data &copy; <a href="https://openstreetmap.org" target="_blank">OpenStreetMap</a>',
         maxZoom: 18,
     });
