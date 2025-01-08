@@ -9657,9 +9657,9 @@
     };
     const getIcon = (mapMarkerUrl) => L.icon({
       iconUrl: mapMarkerUrl,
-      popupAnchor: [0, -100],
-      iconSize: [75, 100],
-      iconAnchor: [37.5, 100]
+      popupAnchor: [0, -50],
+      iconSize: [37.5, 50],
+      iconAnchor: [18.75, 50]
     });
     const getMarkers = (openStreetMap2, locations, mapMarkerUrl) => {
       log("Get OpenStreetMap Markers");
@@ -9777,13 +9777,10 @@
       return;
     }
     target.forEach((map) => {
-      const marker = map.querySelector(['[dd-map="marker"]']);
       const locations = map.querySelectorAll(['[dd-map="location"]']);
-      if (!marker || !locations) {
+      if (!locations) {
         return;
       }
-      const mapMarkers = [];
-      marker.remove();
       locations.forEach((location2) => {
         let title = location2.getAttribute(["dd-location-title"]);
         let address = location2.getAttribute(["dd-location-address"]);
@@ -9806,7 +9803,7 @@
         mapMarkers,
         "streetMap",
         12,
-        "https://cdn.prod.website-files.com/67606dd3484cbf8b6d8ecb18/6776820fb4847dea411fdfd6_map-marker.svg"
+        "https://cdn.prod.website-files.com/67606dd3484cbf8b6d8ecb18/677eaebf644dd758036e8b73_map-marker.svg"
       ).then(() => {
         console.log("Map initialized!");
       });
