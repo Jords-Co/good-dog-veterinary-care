@@ -11,13 +11,10 @@ export const openStreetMap = () => {
         return;
     }
     target.forEach((map) => {
-        const marker = map.querySelector(['[dd-map="marker"]']);
         const locations = map.querySelectorAll(['[dd-map="location"]']);
-        if (!marker || !locations) {
+        if (!locations) {
             return;
         }
-        const mapMarkers = [];
-        marker.remove();
         locations.forEach((location) => {
             let title = location.getAttribute(['dd-location-title']);
             let address = location.getAttribute(['dd-location-address']);
