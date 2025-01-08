@@ -40,7 +40,7 @@ export const openStreetMap = () => {
             mapMarkers,
             'streetMap',
             12,
-            'https://cdn.prod.website-files.com/67606dd3484cbf8b6d8ecb18/6776820fb4847dea411fdfd6_map-marker.svg'
+            'https://cdn.prod.website-files.com/67606dd3484cbf8b6d8ecb18/677eaebf644dd758036e8b73_map-marker.svg'
         ).then(() => {
             console.log('Map initialized!');
         });
