@@ -67,9 +67,9 @@ export const OpenStreetMapManager = () => {
      */
     const getIcon = (mapMarkerUrl) => L.icon({
         iconUrl: mapMarkerUrl,
-        popupAnchor: [0, -100],
-        iconSize: [75, 100],
-        iconAnchor: [37.5, 100],
+        popupAnchor: [0, -50],
+        iconSize: [37.5, 50],
+        iconAnchor: [18.75, 50],
     });
     /**
      * Get Markers.
