@@ -16,10 +16,11 @@ export const teamMemberModal = () => {
     }
     showModalLinks.forEach((showModalLink) => {
         showModalLink.addEventListener('click', () => {
-            let teamMember = showModalLink.parentElement?.parentElement?.parentElement;
+            let teamMember = showModalLink.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
             if (!teamMember) {
                 return false;
             }
+            console.log(teamMember);
             modal.querySelector(['[dd-modal="image"]']).src = teamMember.querySelector('[dd-tm="image"]').src;
             modal.querySelector(['[dd-modal="name"]']).innerText = teamMember.querySelector('[dd-tm="name"]').innerText;
             modal.querySelector(['[dd-modal="job-title"]']).innerText = teamMember.querySelector('[dd-tm="job-title"').innerText;
