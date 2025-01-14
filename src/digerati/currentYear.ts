@@ -11,4 +11,3 @@ export const currentYear = () => {
     const fullYear = new Date().getFullYear();
     target.innerText = fullYear.toString();
 };
-
