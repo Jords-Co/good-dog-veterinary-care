@@ -86,7 +86,7 @@ export const klaviyoForm = () => {
             ).then(response => {
                 console.log('Received response from Klaviyo:', response);
                 form.style.display = 'none';
-                if (response.ok) {
+                if (!response.ok) {
                     console.warn('Response not OK. Processing error response...');
                     // Check for a non-successful response
                     return response.json().then(err => {
