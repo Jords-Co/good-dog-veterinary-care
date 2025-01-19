@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/index.css"],
+  "sourcesContent": ["/* Hide Navbar from 1440px down */\n@media (min-width: 1439px) {\n    .w-nav[data-collapse=all] .w-nav-menu.navbar14_menu {\n        justify-content: flex-start;\n        align-items: center;\n        display: flex;\n    }\n}"],
+  "mappings": ";AACA,OAAO,CAAC,SAAS,EAAE;AACf,GAAC,KAAK,CAAC,mBAAmB,CAAC,UAAU,CAAC;AAClC,qBAAiB;AACjB,iBAAa;AACb,aAAS;AACb;AACJ;",
+  "names": []
+}

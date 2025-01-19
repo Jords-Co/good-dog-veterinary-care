@@ -1,0 +1,8 @@
+/* Hide Navbar from 1440px down */
+@media (min-width: 1439px) {
+    .w-nav[data-collapse=all] .w-nav-menu.navbar14_menu {
+        justify-content: flex-start;
+        align-items: center;
+        display: flex;
+    }
+}

@@ -12,7 +12,7 @@ export const OpenStreetMapManager = () => {
      * @param message  String
      */
     const log = (message) => {
-        // console.log(message);
+        console.log(message);
     };
     /**
      * Get Map Instance.
@@ -58,20 +58,42 @@ export const OpenStreetMapManager = () => {
      * @param mapMarkerUrl 
      * @returns 
      */
-    const getMarkers = (openStreetMap, locations, mapMarkerUrl) => {
+    const getMarkers = (openStreetMap, locations, popUp, mapMarkerUrl) => {
         log('Get OpenStreetMap Markers');
         const mapIcon = getIcon(mapMarkerUrl);
         return locations.map((location) => {
             log(`Add [${location.title} (${location.latitude}, ${location.longitude})]`);
+            log(popUp.outerHTML);
             return L.marker([location.latitude, location.longitude], { icon: mapIcon }).bindPopup(
-                `<div class="address"><strong>${location.title}</strong><address>${location.address}</address></div>`,
-                { direction: 'right', maxWidth: 300, className: 'openstreetmap-popup' }
+                generatePopUpHtml(location, popUp),
+                {
+                    direction: 'right',
+                    maxWidth: 344,
+                    className: 'openstreetmap-popup'
+                }
             ).on('click', (e) => {
                 log(`Map Marker clicked, pan to: [${e.latlng.lat}], [${e.latlng.lng}]`);
                 openStreetMap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
             });
         });
     };
+    /**
+     * Generate PopUp HTML
+     * @param location 
+     * @param popUp 
+     * @returns 
+     */
+    const generatePopUpHtml = (location, popUp) => {
+        const heading = popUp.querySelector('[dd-popup="location"]');
+        const address = popUp.querySelector('[dd-popup="address"]');
+        const link = popUp.querySelector('[dd-popup="link"]');
+        heading.textContent = location.title;
+        address.textContent = location.address;
+        link.href = '/locations/' + location.slug;
+        const popUpHtml = popUp.outerHTML.replace('hide', '');
+        console.log(popUpHtml);
+        return popUpHtml;
+    }
     /**
      * Display Map.
      * 
@@ -103,21 +125,18 @@ export const OpenStreetMapManager = () => {
      * 
      * @param mapId
      * @param locations 
+     * @param popUp
      * @param leafletProviderUrl
      * @param zoomLevel 
      * @param mapMarkerUrl 
      * @returns 
      */
-    const initialiseOpenStreetMap = (mapId, locations, leafletProviderUrl, zoomLevel, mapMarkerUrl) => {
+    const initialiseOpenStreetMap = (mapId, locations, popUp, leafletProviderUrl, zoomLevel, mapMarkerUrl) => {
         return new Promise((resolve) => {
             log(`Initialising OpenStreetMap (${mapId})]`);
             const openStreetMap = getMapInstance(mapId);
-            const markers = getMarkers(openStreetMap, locations, mapMarkerUrl);
+            const markers = getMarkers(openStreetMap, locations, popUp, mapMarkerUrl);
             const markerGroup = L.featureGroup(markers).addTo(openStreetMap);
-            log(openStreetMap);
-            log(markers);
-            log(leafletProviderUrl);
-            log(markerGroup);
             displayMap(locations, markerGroup, openStreetMap, leafletProviderUrl, zoomLevel);
             resolve();
         });
