@@ -20,11 +20,10 @@ export const teamMemberModal = () => {
             if (!teamMember) {
                 return false;
             }
-            console.log(teamMember);
             modal.querySelector(['[dd-modal="image"]']).src = teamMember.querySelector('[dd-tm="image"]').src;
             modal.querySelector(['[dd-modal="name"]']).innerText = teamMember.querySelector('[dd-tm="name"]').innerText;
             modal.querySelector(['[dd-modal="job-title"]']).innerText = teamMember.querySelector('[dd-tm="job-title"').innerText;
-            modal.querySelector(['[dd-modal="biography"]']).innerText = teamMember.querySelector('[dd-tm="biography"]').innerText;
+            modal.querySelector(['[dd-modal="biography"]']).innerHTML = teamMember.querySelector('[dd-tm="biography"]').innerHTML;
         }, { passive: true });
     });
 };
