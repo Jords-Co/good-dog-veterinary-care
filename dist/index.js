@@ -9900,21 +9900,6 @@
     });
   };
 
-  // src/digerati/basinForm.ts
-  init_live_reload();
-  var basinForm = () => {
-    const basinForms = document.querySelectorAll('[dd-form="basin"]');
-    basinForms.forEach((form) => {
-      console.log(form);
-      const entryPointUrl = form.getAttribute("dd-form-entry-point-url");
-      if (!entryPointUrl) {
-        console.warn("Entry Point URL not found");
-        return;
-      }
-      form.setAttribute("action", entryPointUrl);
-    });
-  };
-
   // src/index.ts
   window.Webflow || [];
   window.Webflow.push(() => {
@@ -9924,7 +9909,6 @@
     teamMemberModal();
     currentYear();
     klaviyoForm();
-    basinForm();
   });
 })();
 /*! Bundled license information:

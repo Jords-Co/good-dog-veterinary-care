@@ -4,7 +4,6 @@ import { openStreetMap } from "$goodDogVeterinaryCare/openStreetMap";
 import { teamMemberModal } from "$digerati/teamMemberModal";
 import { collectionSplitter } from "$digerati/collectionSplitter";
 import { klaviyoForm } from "$digerati/klaviyoForm";
-import { basinForm } from "$digerati/basinForm";
 
 window.Webflow || [];
 window.Webflow.push(() => {
@@ -14,5 +13,4 @@ window.Webflow.push(() => {
   teamMemberModal();
   currentYear();
   klaviyoForm();
-  basinForm();
 });
